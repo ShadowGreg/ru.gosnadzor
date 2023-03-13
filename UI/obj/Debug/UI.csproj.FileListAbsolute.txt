@@ -28,3 +28,4 @@ C:\workspace\ru.gosnadzor\UI\bin\Debug\ru.gosnadzor.exe.config
 C:\workspace\ru.gosnadzor\UI\obj\Debug\UI.exe.config
 C:\workspace\ru.gosnadzor\UI\obj\Debug\UI.csproj.CopyComplete
 C:\workspace\ru.gosnadzor\UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\workspace\ru.gosnadzor\UI\obj\Debug\UI_Content.g.cs
