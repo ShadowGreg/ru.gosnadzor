@@ -1,0 +1,68 @@
+﻿<Window
+    Height="450"
+    Title="MainWindow"
+    Width="800"
+    mc:Ignorable="d"
+    x:Class="ru.gosnadzor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ru.gosnadzor"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Menu
+            Background="LightGray"
+            Grid.Row="0"
+            Height="25"
+            VerticalAlignment="Center">
+            <Button Click="{Binding AddPath}" Content="Открыть файл с билетами" />
+            <Button Content="Пройти весь опросник" />
+            <Button Content="Пройти случайные 20 вопросов" />
+        </Menu>
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center">
+            <Button
+                Content="1"
+                Height="30"
+                Width="30" />
+            <Button
+                Content="999"
+                Height="30"
+                Width="30" />
+        </DockPanel>
+
+        <TextBox
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Name="question"
+            Text="jfghj"
+            VerticalAlignment="Top" />
+        <ListBox Grid.Row="3">
+            <ListBoxItem Background="LightGray" Margin="2">
+                <RadioButton Content="dfgdfg" x:Name="answer1" />
+            </ListBoxItem>
+            <ListBoxItem Background="LightGray" Margin="2">
+                <RadioButton Content="dsdfg" x:Name="answer2" />
+            </ListBoxItem>
+        </ListBox>
+        <DockPanel Grid.Row="4" HorizontalAlignment="Center">
+            <Button
+                Content="Назад"
+                Height="30"
+                Width="60" />
+            <Button
+                Content="Ответить"
+                Height="30"
+                Width="60" />
+        </DockPanel>
+
+
+
+    </Grid>
+</Window>
