@@ -24,6 +24,11 @@ namespace UI
             this._execute(parameter);
         }
 
+        public Action<object> Execute()
+        {
+            return this._execute;
+        }
+
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;

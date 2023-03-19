@@ -61,16 +61,6 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
-            <!-- <ListBox ItemsSource="{Binding SomeList}"> -->
-            <!--     <ListBox.ItemTemplate> -->
-            <!--         <HierarchicalDataTemplate> -->
-            <!--             <TextBlock Background="LightGray" Margin="10,5,10,5"> -->
-            <!--                 <CheckBox Content="{Binding Content}" IsThreeState="False" /> -->
-            <!--             </TextBlock> -->
-            <!--         </HierarchicalDataTemplate> -->
-            <!--     </ListBox.ItemTemplate> -->
-            <!-- </ListBox> -->
         </ScrollViewer>
         <StackPanel
             Grid.Row="4"
@@ -83,6 +73,7 @@
                 Width="100" />
             <!--  Click="PreviewClick"  -->
             <Button
+                Command="{Binding SetAnswers}"
                 Content="Ответить"
                 Height="30"
                 Margin="3"

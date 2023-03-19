@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 
 namespace UI
 {
@@ -47,7 +44,10 @@ namespace UI
             get => _questionText;
             private set
             {
-                _questionText = _dataController == null ? Text.StartText : _dataController.GetText();
+                _questionText = _dataController ==
+                                null
+                    ? Text.StartText
+                    : _dataController.GetText();
                 OnPropertyChanged();
             }
         }
@@ -75,12 +75,14 @@ namespace UI
             {
                 string t = tempValue[index];
                 ExtensionAnswers cb = new ExtensionAnswers(tempValue[index]);
-                
+
                 output.Add(cb);
             }
 
             return output;
         }
+
+        private string _questionText;
 
         public readonly DependencyProperty TopicListProperty =
             DependencyProperty.Register(nameof(SomeList), typeof(ObservableCollection<CheckBox>), typeof(MainWindow),
@@ -107,17 +109,43 @@ namespace UI
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
         }
 
-        protected internal void SetAnswers(object sender, RoutedEventArgs e)
+        private DelegateCommand _setAnswers; 
+        public DelegateCommand SetAnswers
         {
-            PreviewClick(sender, e);
+            get
+            {
+                return _setAnswers ?? (_setAnswers = new DelegateCommand(obj =>
+                    {
+                        
+                        // TODO делаем овтеты и сравнение с объектами ответов
+                        var tem =_dataController;
+                        var FillingModelObjects = ((ViewModel)_setAnswers.Execute().Target).SomeList;
+                        var temp = obj;
+                        int questions = _questions;
+                    }
+                    ));
+            }
         }
 
-        protected internal void NextQuestion(object sender, RoutedEventArgs e)
+        private DelegateCommand _nextQuestion;
+
+        public DelegateCommand NextQuestion
         {
-            PreviewClick(sender, e);
+            get
+            {
+                return _nextQuestion ?? (
+                    _nextQuestion = new DelegateCommand(obj =>
+                    {
+                        // TODO делаем возможность переключения вперёд и где то обработчик должен быть про кнопку назад
+                        _dataController = _dataController.GetQuestion();
+                        QuestionText = _dataController.GetText();
+                        SomeList = GetValue();
+                        QuestionCount += 1;
+                    })
+                );
+            }
         }
 
-        private string _questionText;
 
         private DelegateCommand _loadTickets;
 
@@ -144,6 +172,7 @@ namespace UI
 
                         _dataController = new DataController(filename);
                         SetCount();
+                        _dataController = _dataController.GetQuestion();
                         QuestionText = _dataController.GetText();
                         SomeList = GetValue();
                         QuestionCount = 0;

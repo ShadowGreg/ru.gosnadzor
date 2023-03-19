@@ -26,6 +26,6 @@ public class CsvReadController_Test
         
         var actual = rc.readFile()[0][0];
         
-        Assert.AreEqual(expected, actual);
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }

@@ -19,21 +19,22 @@ public class CsvConverter : IConvert
     public List<BaseQuestion> getQuestions()
     {
         List<List<string>> convertData = _controller.readFile();
-        List<BaseAnswer> listAnswers = new();
         List<BaseQuestion> questions = new();
         while (convertData.Count != 0)
         {
             _question = new BaseQuestion();
+            List<BaseAnswer> listAnswers = new();
             if (convertData[0][0] != "")
             {
                 _question.text = convertData[0][0];
                 PutData(listAnswers, convertData);
             }
-            while (convertData.Count != 0 && convertData[0][0] == "" )
+
+            while (convertData.Count != 0 && convertData[0][0] == "")
             {
                 PutData(listAnswers, convertData);
             }
-            
+
             _question.answersInQuestion = new Answers(listAnswers);
             questions.Add(_question);
         }
@@ -48,6 +49,7 @@ public class CsvConverter : IConvert
         {
             return text == "r";
         }
+
         return questions;
     }
 }
