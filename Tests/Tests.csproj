@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ru.gosnadzor\ru.gosnadzor.csproj" />
+      <ProjectReference Include="..\ModelCore\ModelCore.csproj" />
     </ItemGroup>
 
 </Project>

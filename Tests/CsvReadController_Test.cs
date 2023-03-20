@@ -5,7 +5,7 @@ namespace TestProject1;
 public class CsvReadController_Test
 {
     private ReadController rc;
-    private static readonly string path = "C:/workspace/ru.gosnadzor/ru.gosnadzor/Data/a1.csv";
+    private static readonly string path = DataPath.FilePath;
     [SetUp]
     public void Setup()
     {

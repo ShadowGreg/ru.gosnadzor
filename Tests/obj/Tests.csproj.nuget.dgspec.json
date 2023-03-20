@@ -4,105 +4,19 @@
     "C:\\workspace\\ru.gosnadzor\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj": {
-      "version": "1.0.0",
+    "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj",
-        "projectName": "ru.gosnadzor",
-        "projectPath": "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj",
-        "packagesPath": "C:\\Users\\shado\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\obj\\",
-        "projectStyle": "PackageReference",
-        "crossTargeting": true,
-        "fallbackFolders": [
-          "D:\\DevExpress 22.1\\Components\\Offline Packages",
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\shado\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net48",
-          "net6.0-windows"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\shado\\Downloads": {},
-          "D:\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
+        "projectUniqueName": "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj",
+        "projectName": "ModelCore",
+        "projectPath": "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj",
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
-            "projectReferences": {}
-          },
           "net48": {
-            "targetAlias": "net48",
             "projectReferences": {}
           }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
-          "dependencies": {
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[30.0.1, )"
-            },
-            "Microsoft.Xaml.Behaviors.Wpf": {
-              "target": "Package",
-              "version": "[1.1.39, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WPF": {
-              "privateAssets": "none"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
-        },
-        "net48": {
-          "targetAlias": "net48",
-          "dependencies": {
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[30.0.1, )"
-            },
-            "Microsoft.Xaml.Behaviors.Wpf": {
-              "target": "Package",
-              "version": "[1.1.39, )"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
-        }
+        "net48": {}
       }
     },
     "C:\\workspace\\ru.gosnadzor\\Tests\\Tests.csproj": {
@@ -139,16 +53,16 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj": {
-                "projectPath": "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj"
+              "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj": {
+                "projectPath": "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj"
               }
             }
           },
           "net48": {
             "targetAlias": "net48",
             "projectReferences": {
-              "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj": {
-                "projectPath": "C:\\workspace\\ru.gosnadzor\\ru.gosnadzor\\ru.gosnadzor.csproj"
+              "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj": {
+                "projectPath": "C:\\workspace\\ru.gosnadzor\\ModelCore\\ModelCore.csproj"
               }
             }
           }

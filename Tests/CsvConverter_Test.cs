@@ -1,4 +1,5 @@
-﻿using ru.gosnadzor.Controller.CsvController;
+﻿using ModelCore.Model.Entity.Abstract;
+using ru.gosnadzor.Controller.CsvController;
 using ru.gosnadzor.Convertor;
 using ru.gosnadzor.Model;
 
@@ -7,7 +8,7 @@ namespace TestProject1;
 public class CsvConverter_Test
 {
     private CsvConverter _csvConverter;
-    private static readonly string path = "C:/workspace/ru.gosnadzor/ru.gosnadzor/Data/a1.csv";
+    private static readonly string path = DataPath.FilePath;
 
 
     [SetUp]
@@ -49,8 +50,8 @@ public class CsvConverter_Test
         Answers answers = new Answers(list); 
         return new BaseQuestion()
         {
-            text = "Какие требования не могут быть отнесены к лицензионным требованиям?    Укажите все правильные ответы",
-            answersInQuestion = answers
+            Text = "Какие требования не могут быть отнесены к лицензионным требованиям?    Укажите все правильные ответы",
+            AnswersInQuestion = answers
         } ;
     }
 }

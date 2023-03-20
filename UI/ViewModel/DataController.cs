@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using ModelCore.Model.Entity.Abstract;
 using ru.gosnadzor.Controller.CsvController;
 using ru.gosnadzor.Convertor;
 using ru.gosnadzor.Model;
+
 
 namespace UI
 {
@@ -13,10 +15,15 @@ namespace UI
         // TODO Вопрос как
         private readonly CsvConverter _csvConverter;
         private readonly List<BaseQuestion> _questions;
+
+
         private BaseQuestion _outQuestion;
+
+
         private List<BaseQuestion> _repliedQuestions;
         private int rnd;
 
+        public BaseQuestion OutQuestion => _outQuestion;
 
         public DataController(string path)
         {
@@ -41,12 +48,11 @@ namespace UI
 
         public string GetText()
         {
-            GetQuestion();
-            return _outQuestion.text;
+            return _outQuestion.Text;
         }
         public List<string> GetAnswers()
         {
-            return _outQuestion.answersInQuestion.GetAnswers();;
+            return _outQuestion.AnswersInQuestion.GetAnswers();;
         }
     }
 }

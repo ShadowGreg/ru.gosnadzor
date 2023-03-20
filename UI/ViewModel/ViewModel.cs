@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using ru.gosnadzor.Model;
+using UI.ViewModel.AnswersItems;
 
-namespace UI
+namespace UI.ViewModel
 {
     public class ViewModel : INotifyPropertyChanged
     {
@@ -109,18 +111,30 @@ namespace UI
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
         }
 
-        private DelegateCommand _setAnswers; 
+        private DelegateCommand _setAnswers;
+
         public DelegateCommand SetAnswers
         {
             get
             {
                 return _setAnswers ?? (_setAnswers = new DelegateCommand(obj =>
                     {
-                        
                         // TODO делаем овтеты и сравнение с объектами ответов
-                        var tem =_dataController;
-                        var FillingModelObjects = ((ViewModel)_setAnswers.Execute().Target).SomeList;
-                        var temp = obj;
+                        // TODO получается нужен ещё контроллер состояния кнопок
+                        Answers answersInQuestion =_dataController.OutQuestion.AnswersInQuestion;
+                        ObservableCollection<ExtensionAnswers> FillingModelObjects = ((ViewModel)_setAnswers.Execute().Target).SomeList;
+                        for (int i = 0; i < FillingModelObjects.Count; i++)
+                        {
+                            if (answersInQuestion.IsAnswerCorrect(FillingModelObjects[i].Answer))
+                            {
+                                FillingModelObjects[i].Color = AnswerColors.Green.ToString();
+                            }
+                            else
+                            {
+                                FillingModelObjects[i].Color = AnswerColors.Red.ToString();
+                            }
+                        }
+                        object temp = obj;
                         int questions = _questions;
                     }
                     ));
@@ -136,6 +150,7 @@ namespace UI
                 return _nextQuestion ?? (
                     _nextQuestion = new DelegateCommand(obj =>
                     {
+                        
                         // TODO делаем возможность переключения вперёд и где то обработчик должен быть про кнопку назад
                         _dataController = _dataController.GetQuestion();
                         QuestionText = _dataController.GetText();

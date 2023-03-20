@@ -1,3 +1,4 @@
+
 using ru.gosnadzor.Model;
 
 namespace TestProject1;
@@ -5,7 +6,7 @@ namespace TestProject1;
 public class AnswersTests
 {
     private List<BaseAnswer>? _answers;
-    private Answers _testAnswers;
+    private Answers? _testAnswers;
 
     [SetUp]
     public void Setup()
@@ -38,9 +39,12 @@ public class AnswersTests
             "Test_text3"
         };
 
-        List<string> actualAnswers = _testAnswers.GetAnswers();
+        if (_testAnswers != null)
+        {
+            List<string?> actualAnswers = _testAnswers.GetAnswers();
 
-        Assert.That(actualAnswers, Is.EqualTo(expectedAnswers));
+            Assert.That(actualAnswers, Is.EqualTo(expectedAnswers));
+        }
     }
 
     [Test]
@@ -49,7 +53,7 @@ public class AnswersTests
         const bool expected = true;
         
         Setup();
-        bool actual = _testAnswers.IsAnswerCorrect("Test_text3");
+        bool actual = _testAnswers != null && _testAnswers.IsAnswerCorrect("Test_text3");
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -59,7 +63,7 @@ public class AnswersTests
         const bool expected = false;
         
         Setup();
-        bool actual = _testAnswers.IsAnswerCorrect("Test_text1");
+        bool actual = _testAnswers != null && _testAnswers.IsAnswerCorrect("Test_text1");
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -70,10 +74,13 @@ public class AnswersTests
         const bool expected = true;
         
         Setup();
-        _testAnswers.IsAnswerCorrect("Test_text3");
-        bool actual = _testAnswers.IsCorrectlyBefore();
-        
-        Assert.That(actual, Is.EqualTo(expected));
+        if (_testAnswers != null)
+        {
+            _testAnswers.IsAnswerCorrect("Test_text3");
+            bool actual = _testAnswers.IsCorrectlyBefore();
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 
     [Test]
@@ -82,10 +89,13 @@ public class AnswersTests
         const bool expected = false;
         
         Setup();
-        _testAnswers.IsAnswerCorrect("Test_text1");
-        bool actual = _testAnswers.IsCorrectlyBefore();
-        
-        Assert.That(actual, Is.EqualTo(expected));
+        if (_testAnswers != null)
+        {
+            _testAnswers.IsAnswerCorrect("Test_text1");
+            bool actual = _testAnswers.IsCorrectlyBefore();
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 
 }

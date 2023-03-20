@@ -50,9 +50,11 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="ViewModel\AnswersItems\AnswerColors.cs" />
+        <Compile Include="ViewModel\AnswersItems\ColorField.cs" />
+        <Compile Include="ViewModel\AnswersItems\ExtensionAnswers.cs" />
         <Compile Include="ViewModel\DataController.cs" />
         <Compile Include="ViewModel\DelegateCommand.cs" />
-        <Compile Include="ViewModel\ExtensionAnswers.cs" />
         <Compile Include="ViewModel\Text.cs" />
         <Compile Include="ViewModel\ViewModel.cs" />
         <Page Include="MainWindow.xaml">
@@ -86,13 +88,13 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\ru.gosnadzor\ru.gosnadzor.csproj">
-        <Project>{0f03ff3d-f2f6-4a85-946f-4a525ae6fb63}</Project>
-        <Name>ru.gosnadzor</Name>
-      </ProjectReference>
+      <Content Include=".gitignore" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include=".gitignore" />
+      <ProjectReference Include="..\ModelCore\ModelCore.csproj">
+        <Project>{9289407f-18ce-43b5-a9a9-29570e99080e}</Project>
+        <Name>ModelCore</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
